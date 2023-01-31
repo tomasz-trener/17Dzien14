@@ -18,6 +18,13 @@ namespace P04Sklep.API.Migrations
                 nullable: false,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)");
+
+            migrationBuilder.AddColumn<string>(
+               name: "ImageUrl",
+               table: "Products",
+               type: "nvarchar(max)",
+               nullable: false,
+               defaultValue: "");
         }
 
         /// <inheritdoc />

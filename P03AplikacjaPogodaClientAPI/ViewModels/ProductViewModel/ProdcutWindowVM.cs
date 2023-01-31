@@ -19,6 +19,7 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
             get { return selectedProduct; }
             set
             {
+                selectedProduct = value;
                 OnPropertyChange();
             }
         }

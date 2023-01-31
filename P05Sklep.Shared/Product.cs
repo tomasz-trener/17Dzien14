@@ -20,5 +20,7 @@ namespace P05Sklep.Shared
 
         public string ImageUrl { get; set; } = string.Empty;
 
+     //   public string ImageUrl2 { get; set; } = string.Empty;
+
     }
 }

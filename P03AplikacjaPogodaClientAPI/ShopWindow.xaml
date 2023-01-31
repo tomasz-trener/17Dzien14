@@ -52,13 +52,13 @@
 
             <StackPanel Grid.Column="1">
                 <TextBlock Text="Title"></TextBlock>
-                <TextBox Text="{Binding SelectedProduct.Title}"></TextBox>
+                <TextBox Text="{Binding SelectedProduct.Title, Mode=TwoWay}"></TextBox>
                 <TextBlock Text="Description"></TextBlock>
-                <TextBox Text="{Binding SelectedProduct.Description}"></TextBox>
+                <TextBox Text="{Binding SelectedProduct.Description, Mode=TwoWay}"></TextBox>
                 <TextBlock Text="Color"></TextBlock>
-                <TextBox  Text="{Binding SelectedProduct.Color}"></TextBox>
+                <TextBox  Text="{Binding SelectedProduct.Color, Mode=TwoWay}"></TextBox>
                 <TextBlock Text="Image url"></TextBlock>
-                <TextBox Text="{Binding SelectedProduct.ImageUrl}"></TextBox>
+                <TextBox Text="{Binding SelectedProduct.ImageUrl, Mode=TwoWay}"></TextBox>
                 <Button Content="Save"></Button>
             </StackPanel>
        

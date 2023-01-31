@@ -7,7 +7,7 @@ namespace P06Sklep.DataSeeder
     {
         public static Product[] GenerateProductData()
         {
-            int productId = 21;
+            int productId = 31;
             var productFaker = new Faker<Product>("pl")
                 .RuleFor(o => o.Title, f => f.Commerce.ProductName())
                 .RuleFor(o => o.Description, f => f.Commerce.ProductDescription())
