@@ -40,9 +40,9 @@ namespace P04Sklep.API.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult<ServiceReponse<bool>>> DeleteProduct(int id)
+        public async Task<ActionResult<ServiceReponse<bool>>> DeleteProduct(Product product)
         {
-            var result = await _productService.DeleteProductAsync(id);
+            var result = await _productService.DeleteProductAsync(product.Id);
             return Ok(result);
         }
     }

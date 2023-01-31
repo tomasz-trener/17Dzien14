@@ -37,7 +37,7 @@ namespace P04Sklep.API.Services.ProductService
             _context.Products.Attach(product);
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();
-
+            
             return new ServiceReponse<bool>() { Data = true };
         }
 
