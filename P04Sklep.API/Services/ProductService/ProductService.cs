@@ -16,6 +16,31 @@ namespace P04Sklep.API.Services.ProductService
             _context = context;
         }
 
+        public async Task<ServiceReponse<Product>> CreateProduct(Product product)
+        {
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return new ServiceReponse<Product>() { Data = product };
+        }
+
+        public async Task<ServiceReponse<bool>> DeleteProductAsync(int id)
+        {
+            // Opcja 1: najpierw pobieramy ten ktory chcemy usunac 
+            // potem go usuwamy 
+            // ta opcja powoduje, ze 2 razy odwolujemy sie do bazy
+            //var productToDelete = _context.Products.FirstOrDefaultAsync(x => x.Id == id);
+            //_context.Remove(productToDelete);
+            //_context.SaveChangesAsync();
+
+            // Opcja 2: (tutaj tylko jedno zapytanie do bazy) 
+            var product = new Product() { Id = id };
+            _context.Products.Attach(product);
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+
+            return new ServiceReponse<bool>() { Data = true };
+        }
+
         public async Task<ServiceReponse<Product[]>> GetProductAsync()
         {
             var response = new ServiceReponse<Product[]>()

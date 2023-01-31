@@ -59,7 +59,7 @@
                 <TextBox  Text="{Binding SelectedProduct.Color, Mode=TwoWay}"></TextBox>
                 <TextBlock Text="Image url"></TextBlock>
                 <TextBox Text="{Binding SelectedProduct.ImageUrl, Mode=TwoWay}"></TextBox>
-                <Button Content="Save"></Button>
+                <Button Command="{Binding EditCommand}" Content="Save"></Button>
             </StackPanel>
        
         </Grid>

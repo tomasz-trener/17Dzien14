@@ -51,7 +51,6 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
             };
             await productsApiTool.UpdateProduct(productToUpdate);
             GetPoducts();
-
         }
 
         private async void GetPoducts()
