@@ -16,6 +16,10 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
 
 
         public DelegateCommand EditCommand { get; set; }
+        public DelegateCommand DeleteCommand { get; set; }
+       
+        public DelegateCommand CreateCommand { get; set; }
+
 
         private ProductVM selectedProduct;
 
@@ -35,6 +39,33 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
             GetPoducts();
 
             EditCommand = new DelegateCommand(EditProduct, null);
+            DeleteCommand = new DelegateCommand(DeleteProduct, null);
+            CreateCommand = new DelegateCommand(CreateProduct, null);
+
+        }
+
+        public async void CreateProduct()
+        {
+            ProductsApiTool productsApiTool = new ProductsApiTool();
+
+            var productToCreate = new Product()
+            {
+              //  Id = selectedProduct.Id,
+                Color = selectedProduct.Color,
+                Description = selectedProduct.Description,
+                Title = selectedProduct.Title,
+                ImageUrl = selectedProduct.ImageUrl
+            };
+            await productsApiTool.CreateProduct(productToCreate);
+            GetPoducts();
+        }
+
+        public async void DeleteProduct()
+        {
+            ProductsApiTool productsApiTool = new ProductsApiTool();
+
+            await productsApiTool.DeleteProduct(selectedProduct.Id);
+            GetPoducts();
         }
 
         public async void EditProduct()

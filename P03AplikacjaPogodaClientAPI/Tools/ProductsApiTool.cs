@@ -62,6 +62,26 @@ namespace P03AplikacjaPogodaClientAPI.Tools
 
         }
 
+        internal async Task<bool> DeleteProduct(int id)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(_baseURl);
+                await client.DeleteAsync($"/api/product/{id}");
+                return true;
+            }
 
+        }
+
+        internal async Task<Product> CreateProduct(Product productToCreate)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(_baseURl);
+                var result = await client.PostAsJsonAsync("api/product", productToCreate);
+                var content = await result.Content.ReadFromJsonAsync<ServiceReponse<Product>>();
+                return content.Data;
+            }
+        }
     }
 }

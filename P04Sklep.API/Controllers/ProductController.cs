@@ -33,16 +33,18 @@ namespace P04Sklep.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ServiceReponse<Product[]>>> CreateProduct(Product product)
+        public async Task<ActionResult<ServiceReponse<Product[]>>> CreateProduct([FromBody] Product product)
         {
             var result = await _productService.CreateProduct(product);
             return Ok(result);
         }
 
-        [HttpDelete]
-        public async Task<ActionResult<ServiceReponse<bool>>> DeleteProduct(Product product)
+
+        // https://localhost:7140/api/product/4
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<ServiceReponse<bool>>> DeleteProduct([FromRoute] int id)
         {
-            var result = await _productService.DeleteProductAsync(product.Id);
+            var result = await _productService.DeleteProductAsync(id);
             return Ok(result);
         }
     }

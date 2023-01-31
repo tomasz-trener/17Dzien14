@@ -60,6 +60,8 @@
                 <TextBlock Text="Image url"></TextBlock>
                 <TextBox Text="{Binding SelectedProduct.ImageUrl, Mode=TwoWay}"></TextBox>
                 <Button Command="{Binding EditCommand}" Content="Save"></Button>
+                <Button Command="{Binding DeleteCommand}" Content="Delete"></Button>
+                <Button Command="{Binding CreateCommand}" Content="Create"></Button>
             </StackPanel>
        
         </Grid>
