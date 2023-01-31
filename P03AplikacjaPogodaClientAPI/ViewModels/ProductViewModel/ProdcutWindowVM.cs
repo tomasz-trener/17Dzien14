@@ -1,5 +1,6 @@
 ﻿using P03AplikacjaPogodaClientAPI.Tools;
 using P03AplikacjaPogodaClientAPI.ViewModels.Commands;
+using P05Sklep.Shared;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -36,19 +37,29 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
             EditCommand = new DelegateCommand(EditProduct, null);
         }
 
-        public void EditProduct()
+        public async void EditProduct()
         {
+            ProductsApiTool productsApiTool = new ProductsApiTool();
+
+            var productToUpdate = new Product()
+            {
+                Id = selectedProduct.Id,
+                Color = selectedProduct.Color,
+                Description = selectedProduct.Description,
+                Title = selectedProduct.Title,
+                ImageUrl = selectedProduct.ImageUrl
+            };
+            await productsApiTool.UpdateProduct(productToUpdate);
+            GetPoducts();
 
         }
-
-        
-
 
         private async void GetPoducts()
         {
             ProductsApiTool productsApiTool = new ProductsApiTool();
             var products = await productsApiTool.GetProducts();
 
+            Products.Clear();
             foreach (var p in products)
             {
                 Products.Add(new ProductVM(p));
