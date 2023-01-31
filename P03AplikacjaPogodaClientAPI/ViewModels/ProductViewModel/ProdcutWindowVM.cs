@@ -1,4 +1,5 @@
 ﻿using P03AplikacjaPogodaClientAPI.Tools;
+using P03AplikacjaPogodaClientAPI.ViewModels.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,6 +12,9 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
     internal class ProdcutWindowVM : ViewModelBase
     {
         public ObservableCollection<ProductVM> Products { get; set; }
+
+
+        public DelegateCommand EditCommand { get; set; }
 
         private ProductVM selectedProduct;
 
@@ -28,7 +32,13 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
         {
             Products = new ObservableCollection<ProductVM>();
             GetPoducts();
-         
+
+            EditCommand = new DelegateCommand(EditProduct, null);
+        }
+
+        public void EditProduct()
+        {
+
         }
 
         

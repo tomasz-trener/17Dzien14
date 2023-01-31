@@ -28,6 +28,17 @@ namespace P03AplikacjaPogodaClientAPI.Tools
             _baseURl = configuration["products_base_url"];
         }
 
+        public async Task<Product> UpdateProduct(Product product)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(_baseURl);
+                var result = await client.PutAsJsonAsync("api/product",product);
+                var content =await result.Content.ReadFromJsonAsync<ServiceReponse<Product>>();
+                return content.Data;
+            }
+        }
+
         public async Task<Product[]> GetProducts()
         {
             //using (HttpClient client = new HttpClient())
@@ -50,5 +61,7 @@ namespace P03AplikacjaPogodaClientAPI.Tools
             }
 
         }
+
+
     }
 }
