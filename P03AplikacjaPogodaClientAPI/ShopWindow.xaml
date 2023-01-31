@@ -18,29 +18,54 @@
 
     <StackPanel x:Name="shopPanel">
         <Button Content="Api test" x:Name="btnShopApiTest" Click="btnShopApiTest_Click"></Button>
-        <ListView ItemsSource="{Binding Products}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+         
+            <ListView ItemsSource="{Binding Products}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
 
-                        <StackPanel Grid.Column="0">
-                            <Label Content="{Binding Title}" ></Label>
-                            <Label Content="{Binding Description}" ></Label>
-                        </StackPanel>
-                        <Image Grid.Column="1" Source="{Binding ImageUrl, Converter={StaticResource imageUrlToBitmapConv}}" Width="40" Height="40"></Image>
-                    </Grid>
-                    
-                   
-                    
-                    
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            
-        </ListView>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <Label Content="{Binding Title}" ></Label>
+                                <Label Content="{Binding Description}" ></Label>
+                            </StackPanel>
+                            <Image Grid.Column="1" Source="{Binding ImageUrl, Converter={StaticResource imageUrlToBitmapConv}}" Width="40" Height="40"></Image>
+                        </Grid>
+
+
+
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="Title"></TextBlock>
+                <TextBox></TextBox>
+                <TextBlock Text="Description"></TextBlock>
+                <TextBox></TextBox>
+                <TextBlock Text="Color"></TextBlock>
+                <TextBox></TextBox>
+                <TextBlock Text="Image url"></TextBlock>
+                <TextBox></TextBox>
+                <Button Content="Save"></Button>
+            </StackPanel>
+       
+        </Grid>
+        
+        
+    
+    
     </StackPanel>
 </Window>

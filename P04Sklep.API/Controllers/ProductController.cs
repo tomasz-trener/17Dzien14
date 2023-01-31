@@ -22,7 +22,14 @@ namespace P04Sklep.API.Controllers
         {
             var result = await _productService.GetProductAsync();
             return Ok(result);
-          //  ProductService productService = new ProductService();
+            //  ProductService productService = new ProductService();
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<ServiceReponse<Product>>> UpdateProduct(Product product)
+        {
+            var results = await _productService.UpdateProduct(product);
+            return Ok(results);
         }
 
     }

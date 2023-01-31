@@ -51,5 +51,28 @@ namespace P04Sklep.API.Services.ProductService
 
         }
 
+        public async Task<ServiceReponse<Product>> UpdateProduct(Product product)
+        {
+            var p = _context.Products.FirstOrDefault(x=>x.Id == product.Id);
+
+            if (p == null)
+            {
+                return new ServiceReponse<Product>
+                {
+                    Success = false,
+                    Message = "Not found product"
+                };
+            }
+
+            p.Title = product.Title;
+            p.Description = product.Description;
+            p.Color = product.Color;
+            p.ImageUrl = product.ImageUrl;
+
+            await _context.SaveChangesAsync();
+
+            return new ServiceReponse<Product>() { Data = product };
+
+        }
     }
 }
