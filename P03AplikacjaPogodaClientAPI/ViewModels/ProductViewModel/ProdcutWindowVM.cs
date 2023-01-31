@@ -21,7 +21,7 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
         public DelegateCommand CreateCommand { get; set; }
 
 
-        private ProductVM selectedProduct;
+        private ProductVM selectedProduct = new ProductVM();
 
         public ProductVM SelectedProduct
         {

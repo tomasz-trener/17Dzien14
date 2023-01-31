@@ -15,6 +15,11 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
             _product = product;
         }
 
+        public ProductVM()
+        {
+            _product = new Product();
+        }
+
         //public int Id => _product.Id;
         //public string Title => _product.Title;
         //public string Description => _product.Description;
