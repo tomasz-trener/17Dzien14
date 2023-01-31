@@ -25,7 +25,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
          
-            <ListView ItemsSource="{Binding Products}">
+            <ListView ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
 
@@ -52,13 +52,13 @@
 
             <StackPanel Grid.Column="1">
                 <TextBlock Text="Title"></TextBlock>
-                <TextBox></TextBox>
+                <TextBox Text="{Binding SelectedProduct.Title}"></TextBox>
                 <TextBlock Text="Description"></TextBlock>
-                <TextBox></TextBox>
+                <TextBox Text="{Binding SelectedProduct.Description}"></TextBox>
                 <TextBlock Text="Color"></TextBlock>
-                <TextBox></TextBox>
+                <TextBox  Text="{Binding SelectedProduct.Color}"></TextBox>
                 <TextBlock Text="Image url"></TextBlock>
-                <TextBox></TextBox>
+                <TextBox Text="{Binding SelectedProduct.ImageUrl}"></TextBox>
                 <Button Content="Save"></Button>
             </StackPanel>
        

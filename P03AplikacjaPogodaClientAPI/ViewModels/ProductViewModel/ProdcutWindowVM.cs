@@ -12,12 +12,26 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
     {
         public ObservableCollection<ProductVM> Products { get; set; }
 
+        private ProductVM selectedProduct;
+
+        public ProductVM SelectedProduct
+        {
+            get { return selectedProduct; }
+            set
+            {
+                OnPropertyChange();
+            }
+        }
+
         public ProdcutWindowVM()
         {
             Products = new ObservableCollection<ProductVM>();
             GetPoducts();
          
         }
+
+        
+
 
         private async void GetPoducts()
         {
