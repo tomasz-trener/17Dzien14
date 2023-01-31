@@ -32,5 +32,18 @@ namespace P04Sklep.API.Controllers
             return Ok(results);
         }
 
+        [HttpPost]
+        public async Task<ActionResult<ServiceReponse<Product[]>>> CreateProduct(Product product)
+        {
+            var result = await _productService.CreateProduct(product);
+            return Ok(result);
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<ServiceReponse<bool>>> DeleteProduct(int id)
+        {
+            var result = await _productService.DeleteProductAsync(id);
+            return Ok(result);
+        }
     }
 }
