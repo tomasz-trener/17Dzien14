@@ -30,7 +30,7 @@ namespace P04Sklep.API.Data
      *  dotnet ef migrations add InitialMigration
      *  6) aktualizacja bazy danych
      *  dotnet ef database update
-
+    */
 
 
 
