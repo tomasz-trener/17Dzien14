@@ -26,7 +26,9 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
             get { return selectedProduct; }
             set
             {
-                selectedProduct = value;
+                if(value != null)
+                    selectedProduct = value;
+                
                 OnPropertyChange();
             }
         }
@@ -63,7 +65,9 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
             ProductsApiTool productsApiTool = new ProductsApiTool();
 
             await productsApiTool.DeleteProduct(selectedProduct.Id);
+            
             GetPoducts();
+            selectedProduct = new ProductVM();
         }
 
         public async void EditProduct()
