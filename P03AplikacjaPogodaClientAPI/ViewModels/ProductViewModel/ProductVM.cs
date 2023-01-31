@@ -19,5 +19,7 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
         public string Title => _product.Title;
         public string Description => _product.Description;
 
+        public string ImageUrl => _product.ImageUrl;
+
     }
 }

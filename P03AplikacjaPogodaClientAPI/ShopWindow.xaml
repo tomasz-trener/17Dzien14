@@ -6,21 +6,38 @@
         xmlns:local="clr-namespace:P03AplikacjaPogodaClientAPI"
         xmlns:vm="clr-namespace:P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel"
         mc:Ignorable="d"
+        xmlns:converters="clr-namespace:P03AplikacjaPogodaClientAPI.ViewModels.Converters"
         Title="ShopWindow" Height="450" Width="800">
 
     <!--<Window.Resources>
         <vm:ProdcutWindowVM x:Key="vmData"></vm:ProdcutWindowVM>
     </Window.Resources>-->
-    
+    <Window.Resources>
+        <converters:BitmapImageConverter x:Key="imageUrlToBitmapConv"/>
+    </Window.Resources>
+
     <StackPanel x:Name="shopPanel">
         <Button Content="Api test" x:Name="btnShopApiTest" Click="btnShopApiTest_Click"></Button>
         <ListView ItemsSource="{Binding Products}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <Label Content="{Binding Title}" ></Label>
-                        <Label Content="{Binding Description}" ></Label>
-                    </StackPanel>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <Label Content="{Binding Title}" ></Label>
+                            <Label Content="{Binding Description}" ></Label>
+                        </StackPanel>
+                        <Image Grid.Column="1" Source="{Binding ImageUrl, Converter={StaticResource imageUrlToBitmapConv}}" Width="40" Height="40"></Image>
+                    </Grid>
+                    
+                   
+                    
+                    
                 </DataTemplate>
             </ListView.ItemTemplate>
             
